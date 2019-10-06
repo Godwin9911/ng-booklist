@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+    <div class="card-body"
+       *ngIf="book">
+
+    <div class="row">
+      <div class="col-md-6 table-reponsive table-borderless table-striped">
+        <table class="table ">
+          <tbody>
+            <tr>
+              <th>Title</th>
+              <td>{{book.title}}</td>
+            </tr>
+            <tr>
+              <th>Genre</th>
+              <td>{{book.genre}}</td>
+            </tr>
+            <tr>
+              <th>Author</th>
+              <td>{{book.author}}</td>
+            </tr>
+            <tr>
+              <th>Read</th>
+              <td>{{book.read}}</td>
+            </tr>
+            <!-- <tr>
+              <th>Rating</th>
+              <td><app-rating [rating]="book.rating"></app-rating></td>
+            </tr>-->
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                [routerLink]="['/books']">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                [routerLink]="['/books', book._id, 'edit']">
+                <i class="fa fa-edit"></i> Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="alert alert-danger"
+  *ngIf="errorMessage">{{errorMessage}}
+</div>
+

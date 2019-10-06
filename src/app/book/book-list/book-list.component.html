@@ -1,0 +1,47 @@
+
+<div class="my-4 my-lg-4 form-inline">
+    <label>Filterby </label>
+    <input class="form-control ml-2" type="text" placeholder="Filter by"
+      [(ngModel)]="bookFilter" />
+</div>
+<div class="card">
+  <div class="card-header">
+  {{pageTitle}}
+  </div>
+  <div class="card-body">
+      <div class="table-responsive">
+          <table class="table mb-0"
+                 *ngIf="books && books.length">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Read</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let book of filteredBooks">
+                <td>
+                  <a [routerLink]="['/books', book._id]">
+                    {{ book.title}}
+                  </a>
+                </td>
+                <td>{{ book.author}}</td>
+                <td>{{ book.genre}}</td>
+                <td>{{ book.read }}</td>
+                <!--<td><app-rating [rating]="book.rating"></app-rating></td>-->
+                <td>
+                  <button class="btn btn-outline-primary btn-sm"
+                  [routerLink]="['/books', book._id, 'edit']">
+                  <i class="fa fa-edit"></i> Edit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  </div>
+</div>
+
